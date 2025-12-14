@@ -17,9 +17,14 @@
   text-align: center;
 }
 
+.not_found {
+  color: red;
+}
+
 .description {
   font-size: 18px;
   color: #444444;
   line-height: 28px;
   margin-bottom: 16px;
+  text-align: center;
 }
