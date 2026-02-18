@@ -47,6 +47,9 @@ function NotePreviewModal({ onClose }: NotePreviewModalProps) {
           <div className={css.header}>
             <h2>{note.title}</h2>
           </div>
+           {note.tag && (
+              <span className={css.tagBadge}>#{note.tag}</span>
+            )}
           <p className={css.content}>{note.content}</p>
           <p className={css.date}>{note.createdAt}</p>
         </div>
