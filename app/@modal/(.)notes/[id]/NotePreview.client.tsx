@@ -5,7 +5,11 @@ import { fetchNoteById } from '@/lib/api';
 import css from '@/components/NotePreview/NotePreview.module.css';
 import Modal from '@/components/Modal/Modal';
 
-function NotePreviewModal() {
+interface NotePreviewModalProps {
+  onClose: () => void;
+}
+
+function NotePreviewModal({ onClose }: NotePreviewModalProps) {
   const router = useRouter();
 
   const { id } = useParams<{ id: string }>();
@@ -37,7 +41,7 @@ function NotePreviewModal() {
   }
 
   return (
-    <Modal>
+    <Modal onClose={onClose}>
       <div className={css.container}>
         <div className={css.item}>
           <div className={css.header}>

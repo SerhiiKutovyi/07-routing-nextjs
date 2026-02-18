@@ -9,14 +9,19 @@ import css from './Modal.module.css';
 
 interface ModalProps {
   children: React.ReactNode;
+  onClose: () => void;
 }
 
-function Modal({ children }: ModalProps) {
+function Modal({ children, onClose }: ModalProps) {
   const router = useRouter();
 
   const close = useCallback(() => {
-    router.back();
-  }, [router]);
+    if (onClose) {
+      onClose();
+    } else {
+      router.back();
+    }
+  }, [router, onClose]);
 
   const handleBackdropClick = (e: React.MouseEvent<HTMLDivElement>) => {
     if (e.target === e.currentTarget) {
