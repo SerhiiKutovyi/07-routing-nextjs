@@ -58,9 +58,7 @@ function NotesClient({ tag }: Props) {
       </div>
       {isSuccess && data && <NoteList notes={data.notes} />}
       {isModalOpen && (
-        <Modal onClose={closeModal}>
-          {<NoteForm page={page} onClose={closeModal} />}
-        </Modal>
+        <Modal>{<NoteForm page={page} onClose={closeModal} />}</Modal>
       )}
     </div>
   );
